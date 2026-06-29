@@ -1,0 +1,206 @@
+/* =============================================
+   ClientOnline-Inspired Theme
+   Primary Teal  : #2BBFA4
+   Deep Purple   : #4a3980
+   Footer Navy   : #2e2357
+   Background    : #f4f4f4
+   Font          : Open Sans
+   ============================================= */
+
+:root {
+    --co-teal:       #2BBFA4;
+    --co-teal-dark:  #22a08c;
+    --co-purple:     #4a3980;
+    --co-footer:     #2e2357;
+    --co-bg:         #f4f4f4;
+    --co-white:      #ffffff;
+    --co-text:       #444444;
+    --co-border:     #e0e0e0;
+}
+
+/* ---- Base ---- */
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    background-color: var(--co-bg);
+    color: var(--co-text);
+    min-height: 100%;
+    margin-bottom: 0;
+}
+
+/* ---- Headings ---- */
+h1, h2, h3, h4 {
+    color: var(--co-purple);
+    font-weight: 600;
+}
+
+/* ---- Navbar ---- */
+.co-navbar {
+    background-color: var(--co-white);
+    border-bottom: 1px solid var(--co-border);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    padding: 0.6rem 1rem;
+}
+
+.co-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.co-brand-main {
+    color: #222222;
+}
+
+.co-brand-accent {
+    color: var(--co-teal);
+}
+
+.co-nav-link {
+    color: var(--co-purple) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.2s;
+}
+
+.co-nav-link:hover {
+    color: var(--co-teal) !important;
+}
+
+/* ---- Main Content Container ---- */
+.co-main-container {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* ---- Buttons ---- */
+.btn-co-primary {
+    background-color: var(--co-teal);
+    border-color: var(--co-teal);
+    color: var(--co-white);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-co-primary:hover,
+.btn-co-primary:focus {
+    background-color: var(--co-teal-dark);
+    border-color: var(--co-teal-dark);
+    color: var(--co-white);
+}
+
+.btn-co-secondary {
+    background-color: transparent;
+    border: 1px solid var(--co-purple);
+    color: var(--co-purple);
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn-co-secondary:hover {
+    background-color: var(--co-purple);
+    color: var(--co-white);
+}
+
+.btn-co-danger {
+    background-color: transparent;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn-co-danger:hover {
+    background-color: #c0392b;
+    color: var(--co-white);
+}
+
+.btn-co-success {
+    background-color: transparent;
+    border: 1px solid var(--co-teal);
+    color: var(--co-teal);
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn-co-success:hover {
+    background-color: var(--co-teal);
+    color: var(--co-white);
+}
+
+/* ---- Tables ---- */
+.table thead th {
+    background-color: var(--co-purple);
+    color: var(--co-white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    border: none;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(43, 191, 164, 0.06);
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+    border-color: var(--co-border);
+}
+
+/* ---- Forms ---- */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--co-teal);
+    box-shadow: 0 0 0 0.2rem rgba(43, 191, 164, 0.2);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--co-purple);
+    font-size: 0.9rem;
+}
+
+/* ---- Alerts ---- */
+.alert-success {
+    background-color: rgba(43, 191, 164, 0.12);
+    border-color: var(--co-teal);
+    color: #1a7a69;
+}
+
+/* ---- Badges ---- */
+.badge {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+/* ---- Footer ---- */
+.co-footer {
+    background-color: var(--co-footer);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.82rem;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.co-footer a {
+    color: var(--co-teal);
+    text-decoration: none;
+}
+
+.co-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---- Misc ---- */
+hr {
+    border-color: var(--co-border);
+}

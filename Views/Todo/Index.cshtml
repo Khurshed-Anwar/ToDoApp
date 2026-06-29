@@ -1,0 +1,163 @@
+@model ToDoApp.ViewModels.TodoIndexViewModel
+@{
+    var today = DateTime.Today;
+}
+
+<div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-3 todo-page-header">
+    <h1 class="mb-0">To-Do List</h1>
+    <a asp-action="Create" class="btn btn-co-primary">+ New Task</a>
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    <div class="alert alert-success" role="alert" id="successMessage">
+        @Model.Message
+    </div>
+}
+
+<form asp-action="Index" method="get" class="row g-2 mb-3 align-items-end">
+    <div class="col-12 col-md-4">
+        <input name="search" value="@Model.Search" class="form-control" placeholder="Search task" />
+    </div>
+    <div class="col-6 col-md-3">
+        <select name="status" class="form-select">
+            @foreach (var statusOption in Enum.GetValues<TodoStatusFilter>())
+            {
+                <option value="@statusOption" selected="@(Model.Status == statusOption)">@statusOption</option>
+            }
+        </select>
+    </div>
+    <div class="col-6 col-md-3">
+        <select name="sort" class="form-select">
+            @foreach (var sortOption in Enum.GetValues<TodoSortBy>())
+            {
+                <option value="@sortOption" selected="@(Model.Sort == sortOption)">@sortOption</option>
+            }
+        </select>
+    </div>
+    <div class="col-12 col-md-2 d-grid">
+        <button type="submit" class="btn btn-co-secondary">Apply</button>
+    </div>
+</form>
+
+@if (Model.Items.Count == 0)
+{
+    <div class="alert alert-info">No tasks found.</div>
+}
+else
+{
+    <div class="table-responsive d-none d-md-block">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th style="width: 260px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    var overdue = !item.IsCompleted && item.DueDate.HasValue && item.DueDate.Value.Date < today;
+                    <tr class="@(item.IsCompleted ? "table-success" : overdue ? "table-danger" : "")">
+                        <td>
+                            <span class="@(item.IsCompleted ? "text-decoration-line-through" : "")">@item.Task</span>
+                        </td>
+                        <td>
+                            @if (item.DueDate.HasValue)
+                            {
+                                @item.DueDate.Value.ToString("yyyy-MM-dd")
+                            }
+                            else
+                            {
+                                <span class="text-muted">-</span>
+                            }
+                        </td>
+                        <td>
+                            <span class="badge bg-@(item.Priority == ToDoApp.Models.Priority.High ? "danger" : item.Priority == ToDoApp.Models.Priority.Medium ? "warning text-dark" : "secondary")">
+                                @item.Priority
+                            </span>
+                        </td>
+                        <td>
+                            @if (item.IsCompleted)
+                            {
+                                <span class="badge bg-success">Completed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-primary">Active</span>
+                            }
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm todo-actions" role="group">
+                                <form asp-action="ToggleComplete" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button type="submit" class="btn btn-sm btn-co-success">Toggle</button>
+                                </form>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-co-secondary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-co-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-md-none">
+        @foreach (var item in Model.Items)
+        {
+            var overdue = !item.IsCompleted && item.DueDate.HasValue && item.DueDate.Value.Date < today;
+            <div class="card mb-3 todo-mobile-card @(item.IsCompleted ? "border-success" : overdue ? "border-danger" : string.Empty)">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                        <h6 class="card-title mb-1 @(item.IsCompleted ? "text-decoration-line-through" : string.Empty)">@item.Task</h6>
+                        <span class="badge bg-@(item.Priority == ToDoApp.Models.Priority.High ? "danger" : item.Priority == ToDoApp.Models.Priority.Medium ? "warning text-dark" : "secondary")">@item.Priority</span>
+                    </div>
+
+                    <p class="card-text mb-1"><strong>Due:</strong> @(item.DueDate?.ToString("yyyy-MM-dd") ?? "-")</p>
+                    <p class="card-text mb-2">
+                        <strong>Status:</strong>
+                        @if (item.IsCompleted)
+                        {
+                            <span class="badge bg-success">Completed</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-primary">Active</span>
+                        }
+                    </p>
+
+                    <div class="d-grid gap-2">
+                        <form asp-action="ToggleComplete" method="post">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="btn btn-sm btn-co-success w-100">Toggle Complete</button>
+                        </form>
+                        <div class="d-flex gap-2">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-co-secondary flex-fill">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-co-danger flex-fill">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(function () {
+            var $message = $('#successMessage');
+            if ($message.length) {
+                setTimeout(function () {
+                    $message.fadeOut(800, function () {
+                        $(this).remove();
+                    });
+                }, @(Model.MessageTimeoutSeconds * 1000));
+            }
+        });
+    </script>
+}
+
