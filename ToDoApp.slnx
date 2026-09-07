@@ -1,3 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="ToDoApp.csproj" />
+  <Project Path="ToDoApp.Tests/ToDoApp.Tests.csproj" />
 </Solution>
