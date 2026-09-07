@@ -142,8 +142,6 @@ C:\Khurshed\Code\ToDoApp\ToDoApp\bin\Debug\net9.0\runtimes\win-x86\native\e_sqli
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.csproj.AssemblyReference.cache
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\rpswa.dswa.cache.json
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.AssemblyInfoInputs.cache
-C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.AssemblyInfo.cs
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.csproj.CoreCompileInputs.cache
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.RazorAssemblyInfo.cache
@@ -225,10 +223,14 @@ C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\staticwebassets.build.json.cac
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\staticwebassets.development.json
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\swae.build.ex.cache
-C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.csproj.Up2Date
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.dll
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\refint\ToDoApp.dll
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.pdb
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ToDoApp.genruntimeconfig.cache
 C:\Khurshed\Code\ToDoApp\ToDoApp\obj\Debug\net9.0\ref\ToDoApp.dll
+C:\Khurshed\Code\ToDoApp\ToDoApp\bin\Debug\net9.0\ToDoApp.Tests\obj\project.assets.json
+C:\Khurshed\Code\ToDoApp\ToDoApp\bin\Debug\net9.0\ToDoApp.Tests\obj\ToDoApp.Tests.csproj.nuget.dgspec.json
+C:\Khurshed\Code\ToDoApp\ToDoApp\bin\Debug\net9.0\ToDoApp.Tests\bin\Debug\net9.0\ToDoApp.Tests.deps.json
+C:\Khurshed\Code\ToDoApp\ToDoApp\bin\Debug\net9.0\ToDoApp.Tests\bin\Debug\net9.0\ToDoApp.Tests.runtimeconfig.json
+C:\Khurshed\Code\ToDoApp\ToDoApp\bin\Debug\net9.0\ToDoApp.Tests\obj\Debug\net9.0\ToDoApp.Tests.sourcelink.json

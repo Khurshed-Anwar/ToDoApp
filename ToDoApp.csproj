@@ -4,6 +4,10 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Disable SDK generation of assembly attributes to prevent duplicate
+         compilation errors when attributes are supplied elsewhere. -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +20,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <!-- Exclude nested test project files from the web project when the test
+       project is located inside the same folder tree. This prevents the
+       web project from accidentally compiling test sources. -->
+  <ItemGroup>
+    <Compile Remove="ToDoApp.Tests\\**\\*.cs" />
+    <None Remove="ToDoApp.Tests\\**" />
   </ItemGroup>
 
 </Project>
