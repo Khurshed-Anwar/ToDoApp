@@ -41,6 +41,14 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+# Copy Playwright test output into the artifact
+- task: CopyFiles@2
+  displayName: 'Copy Playwright Tests to Artifact'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\ToDoApp.Tests\bin\Release\net9.0'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\PlaywrightTests'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
